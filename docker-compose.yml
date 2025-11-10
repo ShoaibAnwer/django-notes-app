@@ -3,6 +3,7 @@ version: "3.8"
 services:
   db:
     image: mysql:8.0
+    container_name: "db_cont"
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: test_db
@@ -22,6 +23,7 @@ services:
     build:
       context: .
     image: django_app:latest
+    container_name: "django_cont"
     # Use the service name "db" as DB host; keep it in your .env as DB_HOST=db
     depends_on:
       db:
@@ -45,6 +47,7 @@ services:
 
   nginx:
     build: ./nginx
+    container_name: "nginx_cont"
     # If you're using the official image + local config, you can instead do:
     # image: nginx:alpine
     # volumes:
