@@ -1,4 +1,6 @@
+
 version: "3.8"
+
 services:
   db:
     image: mysql:8.0
@@ -17,6 +19,7 @@ services:
     networks:
       - notes-app-nw
     restart: always
+    
   django_app:
     build:
       context: .
@@ -41,6 +44,7 @@ services:
     networks:
       - notes-app-nw
     restart: always
+    
   nginx:
     build: ./nginx
     container_name: "nginx_cont"
